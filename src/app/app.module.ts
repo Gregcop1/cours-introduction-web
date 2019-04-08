@@ -4,11 +4,13 @@ import {Injector, NgModule} from '@angular/core';
 import { GameComponent } from './game/game.component';
 import {createCustomElement} from '@angular/elements';
 import { BoardComponent } from './board/board.component';
+import { HoodComponent } from './hood/hood.component';
 
 @NgModule({
   declarations: [
     GameComponent,
-    BoardComponent
+    BoardComponent,
+    HoodComponent
   ],
   entryComponents: [
     GameComponent

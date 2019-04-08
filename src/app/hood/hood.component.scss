@@ -1,0 +1,8 @@
+$width: 175px;
+$height: 102px;
+
+.hood {
+  position: absolute; width: 175px; height: 275px; background: url(/assets/hood-south.png) 50% 100% no-repeat;
+  bottom: -$height; left: 0; z-index: 1;
+  transition: left 400ms ease-in-out, bottom 400ms cubic-bezier(0.32, 0.29, 0.09, 1.64);
+}

@@ -6,17 +6,17 @@ $max: 20;
 .row {
   position: absolute; top: 0; left: 0;
 
-  &:last-child .tile:before {
+  &:last-of-type .tile:before {
     content: ''; position: absolute; top: 50%; right: 0; width: 90px; height: 90px; background: url(/assets/border-right.png) 100% 100% no-repeat;
   }
-  &:last-child .tile:first-child:before {
+  &:last-of-type .tile:first-of-type:before {
     width: 180px; background: url(/assets/border-bottom.png) 5px 0 no-repeat, url(/assets/border-right.png) 100% 100% no-repeat;
   }
 }
 .tile {
   position: absolute; top: 0; left: 0; width: $width; height: $height; background: url(/assets/grass.png);
 
-  &:first-child:before {
+  &:first-of-type:before {
     content: ''; position: absolute; top: 50%; width: 90px; height: 90px; background: url(/assets/border-bottom.png) 0 100% no-repeat;
   }
 

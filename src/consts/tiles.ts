@@ -8,3 +8,8 @@ export const TILES = {
   ROCK: 10,
   TREE: 11,
 };
+
+export const TILE = {
+  WIDTH: 175,
+  HEIGHT: 102,
+};

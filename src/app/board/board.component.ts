@@ -1,13 +1,21 @@
-import {Component, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TILES} from '../../consts';
+import {BoardService} from './board.service';
+import {Board} from '../../interfaces';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
-export class BoardComponent {
-  @Input() public tiles: Number[];
+export class BoardComponent implements OnInit {
+  public tiles: Board;
+
+  constructor(private boardService: BoardService) { }
+
+  ngOnInit(): void {
+    this.boardService.tiles$.subscribe((tiles: Board) => this.tiles = tiles);
+  }
 
   public getTileClasses(tile: number, x: number, y: number): string[] {
     const classes = [`tile-${tile}`];
