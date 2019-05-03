@@ -2,10 +2,12 @@ import { TILES } from '../consts';
 
 const { END, BUSH, FLOWER, GRASS, MUD, ROCK, START, TREE } = TILES;
 
-export default [
-  [TREE, TREE, TREE, TREE, TREE, TREE, TREE],
-  [BUSH, BUSH, BUSH, BUSH, BUSH, BUSH, BUSH],
-  [ROCK, ROCK, ROCK, ROCK, ROCK, ROCK, ROCK],
-  [FLOWER, FLOWER, FLOWER, FLOWER, FLOWER, FLOWER, FLOWER],
-  [START, MUD, MUD, MUD, MUD, MUD, END],
-];
+export default {
+  forbiddenTiles: [BUSH, ROCK, TREE],
+  setup: () => undefined,
+  tiles: [
+    [START, MUD, MUD, ROCK],
+    [GRASS, BUSH, MUD, TREE],
+    [ROCK, GRASS, END, TREE],
+  ]
+};

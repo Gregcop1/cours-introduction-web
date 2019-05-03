@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
 import {HoodService} from './hood.service';
 import {BoardSize, Coordinates, Direction} from '../../interfaces';
 import {TILE} from '../../consts';
@@ -21,20 +21,34 @@ export class HoodComponent implements OnInit {
   private position: Coordinates;
   private direction: Direction;
   private boardSize: BoardSize;
-  private moveRequest: Subject<null> = new Subject();
+  private moveRequest$: Subject<Direction> = new Subject();
 
-  constructor(private boardService: BoardService, private hoodService: HoodService) { }
+  constructor(
+    private boardService: BoardService,
+    private hoodService: HoodService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit() {
     this.boardService.boardSize$.subscribe((size: BoardSize) => this.boardSize = size);
-    this.hoodService.position$.subscribe((position: Coordinates) => this.position = position);
-    this.hoodService.direction$.subscribe((direction: Direction) => this.direction = direction);
-    this.moveRequest.asObservable().pipe(
+    this.hoodService.position$.subscribe((position: Coordinates) => {
+      this.position = position;
+      this.cdr.detectChanges();
+    });
+    this.hoodService.direction$.subscribe((direction: Direction) => {
+      this.direction = direction;
+      this.cdr.detectChanges();
+    });
+    this.moveRequest$.asObservable().pipe(
       throttleTime(250),
-    ).subscribe(this.moveForward.bind(this));
+    ).subscribe((direction: Direction) => this.move(direction));
   }
 
-  public get styles(): Styles {
+  public get styles(): Styles|null {
+    if (!this.position) {
+      return null;
+    }
+
     return {
       left: ((this.position.x + this.position.y) * TILE.WIDTH / 2) + this.position.x + 'px',
       bottom: (-(((this.position.y / 2) + 1) * TILE.HEIGHT) + (this.position.x / 2 * TILE.HEIGHT)) + 'px',
@@ -42,39 +56,33 @@ export class HoodComponent implements OnInit {
     };
   }
 
-  public moveForward(): void {
-    const newPosition = {...this.position};
-    switch (this.direction) {
-      case Direction.NORTH : newPosition.x = newPosition.x + 1;
+  public move(direction: Direction): void {
+    switch (direction) {
+      case Direction.NORTH: this.hoodService.moveToNorth();
         break;
-      case Direction.SOUTH : newPosition.x = newPosition.x - 1;
+      case Direction.SOUTH: this.hoodService.moveToSouth();
         break;
-      case Direction.EAST : newPosition.y = newPosition.y - 1;
+      case Direction.EAST: this.hoodService.moveToEast();
         break;
-      case Direction.WEST : newPosition.y = newPosition.y + 1;
+      case Direction.WEST: this.hoodService.moveToWest();
         break;
     }
-
-    this.hoodService.moveTo(newPosition.x, newPosition.y);
-  }
-
-  public faceTo(direction: Direction): void {
-    this.hoodService.faceTo(direction);
   }
 
   @HostListener('window:keydown', ['$event'])
   private keyDown(event: KeyboardEvent): void {
+    let direction: Direction;
     switch (event.code) {
-      case 'ArrowUp': this.faceTo(Direction.NORTH);
+      case 'ArrowUp': direction = Direction.NORTH;
         break;
-      case 'ArrowDown': this.faceTo(Direction.SOUTH);
+      case 'ArrowDown': direction = Direction.SOUTH;
         break;
-      case 'ArrowLeft': this.faceTo(Direction.EAST);
+      case 'ArrowLeft': direction = Direction.EAST;
         break;
-      case 'ArrowRight': this.faceTo(Direction.WEST);
-        break;
-      case 'Space': this.moveRequest.next();
+      case 'ArrowRight': direction = Direction.WEST;
         break;
     }
+
+    this.moveRequest$.next(direction);
   }
 }

@@ -6,6 +6,9 @@ export default {
   forbiddenTiles: [BUSH, ROCK, TREE],
   setup: () => undefined,
   tiles: [
-    [START, MUD, MUD, MUD, END],
+    [START, MUD, ROCK, TREE, GRASS],
+    [BUSH, MUD, MUD, BUSH, FLOWER],
+    [FLOWER, ROCK, MUD, MUD, TREE],
+    [TREE, GRASS, BUSH, END, ROCK],
   ]
 };

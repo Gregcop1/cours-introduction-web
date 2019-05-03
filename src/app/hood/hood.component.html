@@ -1,4 +1,4 @@
 <div
   class="hood direction-{{direction}}"
-  [ngStyle]="{bottom: styles.bottom, left: styles.left, zIndex: styles.zIndex}"
+  [ngStyle]="styles && {bottom: styles.bottom, left: styles.left, zIndex: styles.zIndex}"
 ></div>
