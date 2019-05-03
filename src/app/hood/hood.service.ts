@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {BoardService} from '../board/board.service';
-import {Coordinates} from '../../interfaces';
+import {Coordinates, Direction} from '../../interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HoodService {
   public position$: BehaviorSubject<Coordinates> = new BehaviorSubject(null);
+  public direction$: BehaviorSubject<Direction> = new BehaviorSubject(Direction.SOUTH);
 
   constructor(boardService: BoardService) {
     boardService.startPosition$.subscribe(({x, y}: Coordinates) => {
@@ -17,5 +18,9 @@ export class HoodService {
 
   public moveTo(x: number, y: number): void {
     this.position$.next({x, y});
+  }
+
+  public faceTo(direction: Direction): void {
+    this.direction$.next(direction);
   }
 }

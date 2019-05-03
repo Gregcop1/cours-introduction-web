@@ -2,7 +2,21 @@ $width: 175px;
 $height: 102px;
 
 .hood {
-  position: absolute; width: 175px; height: 275px; background: url(/assets/hood-south.png) 50% 100% no-repeat;
+  position: absolute; width: 175px; height: 275px; background-position: 50% 100%; background-repeat: no-repeat;
   bottom: -$height; left: 0; z-index: 1;
-  transition: left 400ms ease-in-out, bottom 400ms cubic-bezier(0.32, 0.29, 0.09, 1.64);
+
+  &.direction-east { background-image: url(/assets/hood-east.png); }
+  &.direction-north { background-image: url(/assets/hood-north.png); }
+  &.direction-south { background-image: url(/assets/hood-south.png); }
+  &.direction-west { background-image: url(/assets/hood-west.png); }
+
+  &.direction-east,
+  &.direction-north {
+    transition: left 250ms ease-in-out, bottom 250ms cubic-bezier(0.32, 0.29, 0.09, 1.64);
+  }
+
+  &.direction-west,
+  &.direction-south {
+    transition: bottom 250ms ease-in-out, left 250ms cubic-bezier(0.32, 0.29, 0.36, 1.24);
+  }
 }
