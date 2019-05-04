@@ -8,7 +8,7 @@ import {TILE} from '../../consts';
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class GameComponent implements OnInit {
   @Input() public level = 1;
