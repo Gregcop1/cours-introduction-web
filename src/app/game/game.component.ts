@@ -11,7 +11,7 @@ import {TILE} from '../../consts';
   encapsulation: ViewEncapsulation.Native
 })
 export class GameComponent implements OnInit {
-  @Input() public level = 4;
+  @Input() public level = 1;
   public boardSize: BoardSize;
 
   constructor(private boardService: BoardService) { }

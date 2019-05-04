@@ -19,7 +19,7 @@ interface Styles {
 })
 export class HoodComponent implements OnInit {
   private position: Coordinates;
-  private direction: Direction;
+  public direction: Direction;
   private boardSize: BoardSize;
   private moveRequest$: Subject<Direction> = new Subject();
 

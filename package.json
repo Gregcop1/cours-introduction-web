@@ -1,13 +1,17 @@
 {
   "name": "cours-introduction-web",
-  "version": "0.0.0",
+  "main": "dist/game.js",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
+    "build": "ng build --delete-output-path --prod --optimization --output-hashing=none",
+    "copy-template": "cp src/index.html dist/index.html",
+    "build-package": "yarn build && yarn package && yarn copy-template",
+    "e2e": "ng e2e",
+    "package": "cd dist && cat runtime.js polyfills.js scripts.js main.js > game.js && cd ../",
     "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
