@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {TILES} from '../../consts';
 import {BoardService} from './board.service';
 import {Board} from '../../interfaces';
@@ -6,7 +6,8 @@ import {Board} from '../../interfaces';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class BoardComponent implements OnInit {
   public tiles: Board;

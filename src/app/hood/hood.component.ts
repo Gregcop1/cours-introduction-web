@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, HostListener, OnInit, ViewEncapsulation} from '@angular/core';
 import {HoodService} from './hood.service';
 import {BoardSize, Coordinates, Direction} from '../../interfaces';
 import {TILE} from '../../consts';
@@ -15,7 +15,8 @@ interface Styles {
 @Component({
   selector: 'app-hood',
   templateUrl: './hood.component.html',
-  styleUrls: ['./hood.component.scss']
+  styleUrls: ['./hood.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class HoodComponent implements OnInit {
   private position: Coordinates;
