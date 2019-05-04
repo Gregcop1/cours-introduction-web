@@ -5,10 +5,10 @@ $height: 102px;
   position: absolute; width: 175px; height: 275px; background-position: 50% 100%; background-repeat: no-repeat;
   bottom: -$height; left: 0; z-index: 1;
 
-  &.direction-east { background-image: url(../../assets/hood-east.png); }
-  &.direction-north { background-image: url(../../assets/hood-north.png); }
-  &.direction-south { background-image: url(../../assets/hood-south.png); }
-  &.direction-west { background-image: url(../../assets/hood-west.png); }
+  &.direction-east { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/hood-east.png); }
+  &.direction-north { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/hood-north.png); }
+  &.direction-south { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/hood-south.png); }
+  &.direction-west { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/hood-west.png); }
 
   &.direction-east,
   &.direction-north {
