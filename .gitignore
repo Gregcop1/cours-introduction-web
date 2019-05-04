@@ -3,7 +3,7 @@
 # compiled output
 /dist/*
 !/dist/game.js
-!/dist/*.png
+!/dist/assets/
 /tmp
 /out-tsc
 

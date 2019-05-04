@@ -7,42 +7,42 @@ $max: 20;
   position: absolute; top: 0; left: 0;
 
   &:last-of-type .tile:before {
-    content: ''; position: absolute; top: 50%; right: 0; width: 90px; height: 90px; background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/border-right.png) 100% 100% no-repeat;
+    content: ''; position: absolute; top: 50%; right: 0; width: 90px; height: 90px; background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/border-right.png) 100% 100% no-repeat;
   }
   &:last-of-type .tile:first-of-type:before {
-    width: 180px; background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/border-bottom.png) 5px 0 no-repeat, url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/border-right.png) 100% 100% no-repeat;
+    width: 180px; background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/border-bottom.png) 5px 0 no-repeat, url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/border-right.png) 100% 100% no-repeat;
   }
 }
 .tile {
-  position: absolute; top: 0; left: 0; width: $width; height: $height; background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/grass.png);
+  position: absolute; top: 0; left: 0; width: $width; height: $height; background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/grass.png);
 
   &:first-of-type:before {
-    content: ''; position: absolute; top: 50%; width: 90px; height: 90px; background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/border-bottom.png) 0 100% no-repeat;
+    content: ''; position: absolute; top: 50%; width: 90px; height: 90px; background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/border-bottom.png) 0 100% no-repeat;
   }
 
   &:after {
     content: ''; position: absolute; bottom: 0; width: 175px; height: 275px;
     background-repeat: no-repeat; background-position: 50% 100%;
   }
-  &-1 { background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/mud.png); }
+  &-1 { background: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/mud.png); }
   // FLOWER
-  &-2--alt-1:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/flower-1.png); }
-  &-2--alt-2:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/flower-2.png); }
+  &-2--alt-1:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/flower-1.png); }
+  &-2--alt-2:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/flower-2.png); }
   // BUSH
-  &-3--alt-1:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/bush-1.png); }
-  &-3--alt-2:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/bush-2.png); }
-  &-3--alt-3:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/bush-3.png); }
+  &-3--alt-1:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/bush-1.png); }
+  &-3--alt-2:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/bush-2.png); }
+  &-3--alt-3:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/bush-3.png); }
   // ROCK
-  &-10--alt-1:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/rock-1.png); }
-  &-10--alt-2:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/rock-2.png); }
-  &-10--alt-3:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/rock-3.png); }
+  &-10--alt-1:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/rock-1.png); }
+  &-10--alt-2:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/rock-2.png); }
+  &-10--alt-3:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/rock-3.png); }
   // TREE
-  &-11--alt-1:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/tree-1.png); }
-  &-11--alt-2:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/tree-2.png); }
-  &-11--alt-3:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/tree-3.png); }
-  &-11--alt-4:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/tree-4.png); }
-  &-11--alt-5:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/tree-5.png); }
-  &-100:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/flower-3.png); }
+  &-11--alt-1:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/tree-1.png); }
+  &-11--alt-2:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/tree-2.png); }
+  &-11--alt-3:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/tree-3.png); }
+  &-11--alt-4:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/tree-4.png); }
+  &-11--alt-5:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/tree-5.png); }
+  &-100:after { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/flower-3.png); }
 }
 
 
