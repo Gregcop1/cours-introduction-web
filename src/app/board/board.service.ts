@@ -9,6 +9,7 @@ import {TILES} from '../../consts';
   providedIn: 'root'
 })
 export class BoardService {
+  public input$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public level$: BehaviorSubject<Level> = new BehaviorSubject(null);
   public tiles$: BehaviorSubject<Board> = new BehaviorSubject([]);
   public boardSize$: BehaviorSubject<BoardSize> = new BehaviorSubject(null);
@@ -20,13 +21,15 @@ export class BoardService {
         return;
       }
 
-      const {tiles} = level;
+      const {setup, tiles} = level;
       this.tiles$.next(tiles);
       this.boardSize$.next({
         height: tiles.length,
         width: tiles[0].length,
       });
       this.startPosition$.next(this.getStartPosition(tiles));
+      // Display setup messages of this level
+      setup();
     });
   }
 
@@ -36,6 +39,10 @@ export class BoardService {
     }
 
     this.level$.next(levels[level]);
+  }
+
+  public changeInput(input: boolean): void {
+    this.input$.next(input);
   }
 
   private getStartPosition(tiles: Board): Coordinates {

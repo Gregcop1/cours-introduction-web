@@ -1,9 +1,17 @@
 $width: 175px;
 $height: 102px;
 
+@keyframes jump {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5%); }
+  100% { transform: translateY(0); }
+}
+
 .hood {
   position: absolute; width: 175px; height: 275px; background-position: 50% 100%; background-repeat: no-repeat;
   bottom: -$height; left: 0; z-index: 1;
+
+  &.jump { animation: jump 250ms 5; }
 
   &.direction-east { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/hood-east.png); }
   &.direction-north { background-image: url(https://raw.githubusercontent.com/Gregcop1/cours-introduction-web/master/dist/assets/hood-north.png); }

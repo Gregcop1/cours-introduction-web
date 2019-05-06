@@ -19,6 +19,7 @@ interface Styles {
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class HoodComponent implements OnInit {
+  private input: boolean;
   private position: Coordinates;
   public direction: Direction;
   private boardSize: BoardSize;
@@ -31,6 +32,7 @@ export class HoodComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.boardService.input$.subscribe((input: boolean) => this.input = input);
     this.boardService.boardSize$.subscribe((size: BoardSize) => this.boardSize = size);
     this.hoodService.position$.subscribe((position: Coordinates) => {
       this.position = position;
@@ -57,6 +59,12 @@ export class HoodComponent implements OnInit {
     };
   }
 
+  public get classes(): object {
+    return {
+      jump: this.boardService.isEndPosition(this.position),
+    };
+  }
+
   public move(direction: Direction): void {
     switch (direction) {
       case Direction.NORTH: this.hoodService.moveToNorth();
@@ -72,18 +80,20 @@ export class HoodComponent implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   private keyDown(event: KeyboardEvent): void {
-    let direction: Direction;
-    switch (event.code) {
-      case 'ArrowUp': direction = Direction.NORTH;
-        break;
-      case 'ArrowDown': direction = Direction.SOUTH;
-        break;
-      case 'ArrowLeft': direction = Direction.EAST;
-        break;
-      case 'ArrowRight': direction = Direction.WEST;
-        break;
-    }
+    if (this.input) {
+      let direction: Direction;
+      switch (event.code) {
+        case 'ArrowUp': direction = Direction.NORTH;
+          break;
+        case 'ArrowDown': direction = Direction.SOUTH;
+          break;
+        case 'ArrowLeft': direction = Direction.EAST;
+          break;
+        case 'ArrowRight': direction = Direction.WEST;
+          break;
+      }
 
-    this.moveRequest$.next(direction);
+      this.moveRequest$.next(direction);
+    }
   }
 }

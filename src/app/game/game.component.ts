@@ -1,5 +1,4 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import { levels } from '../../levels';
 import {BoardService} from '../board/board.service';
 import {BoardSize} from '../../interfaces';
 import {TILE} from '../../consts';
@@ -12,6 +11,7 @@ import {TILE} from '../../consts';
 })
 export class GameComponent implements OnInit {
   @Input() public level = 1;
+  @Input() public input = false;
   public boardSize: BoardSize;
 
   constructor(private boardService: BoardService) { }
