@@ -5,7 +5,7 @@ const { END, BUSH, FLOWER, GRASS, MUD, ROCK, START, TREE } = TILES;
 export default {
   forbiddenTiles: [BUSH, ROCK, TREE],
   setup: () => {
-    console.log('%cBonjour et bienvenue dans cette simulation de Petit chaperon rouge', 'font-size: 1.8em');
+    console.log('Bonjour et bienvenue dans cette simulation de Petit chaperon rouge');
     console.log('A travers cette simulation, vous pourrez contrôler le petit chaperon rouge... Que diriez-vous de l\'appeler "hood" ?');
     console.log('Quand vous souhaiterez lui demander quelque chose il faudra donc le faire via son nom : hood.faisCeci()');
     console.log('Quelques commandes sont dores et déjà disponibles :');
