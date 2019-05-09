@@ -23,8 +23,12 @@ export class HoodService {
     return this.position$.getValue();
   }
 
-  public faceTo(direction: Direction): void {
+  public async faceTo(direction: Direction): Promise<void> {
     this.direction$.next(direction);
+
+    await new Promise(success => {
+      setTimeout(success, 80);
+    });
   }
 
   public async moveTo(newPosition: Coordinates): Promise<void> {
@@ -72,8 +76,11 @@ export class HoodService {
 
     if (this.boardService.isEndPosition(currentPosition)) {
       console.log('Merci, je suis sûre que ma grand mère adorera ces fleurs.');
+      this.dance();
     } else if (this.boardService.isFlower(currentPosition)) {
       console.log('Argh. C\'est gentil mais ma grand mère préfère les roses rouges.');
     }
   }
+
+  public dance(): void {}
 }
