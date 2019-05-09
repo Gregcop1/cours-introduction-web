@@ -10,8 +10,8 @@ import {TILE} from '../../consts';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class GameComponent implements OnInit {
-  @Input() public level = 4;
-  @Input() public input = true;
+  @Input() public level = 1;
+  @Input() public input = false;
   public boardSize: BoardSize;
 
   constructor(private boardService: BoardService) { }
