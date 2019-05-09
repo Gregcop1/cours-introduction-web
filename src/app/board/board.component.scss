@@ -10,13 +10,13 @@ $max: 20;
     content: ''; position: absolute; top: 50%; right: 0; width: 90px; height: 90px; background: url(https://cdn.jsdelivr.net/npm/cours-introduction-web@0.1.9/dist/assets/border-right.png) 100% 100% no-repeat;
   }
   &:last-of-type .tile-1:before {
-    background-image: url(/assets/border-right-mud.png);
+    background-image: url(https://cdn.jsdelivr.net/npm/cours-introduction-web@0.1.9/dist/assets/border-right-mud.png);
   }
   &:last-of-type .tile:first-of-type:before {
     width: 180px; background: url(https://cdn.jsdelivr.net/npm/cours-introduction-web@0.1.9/dist/assets/border-bottom.png) 5px 0 no-repeat, url(https://cdn.jsdelivr.net/npm/cours-introduction-web@0.1.9/dist/assets/border-right.png) 100% 100% no-repeat;
   }
   &:last-of-type .tile:first-of-type.tile-1:before {
-    background: url(/assets/border-bottom-mud.png) 5px 0 no-repeat, url(/assets/border-right-mud.png) 100% 100% no-repeat;
+    background: url(https://cdn.jsdelivr.net/npm/cours-introduction-web@0.1.9/dist/assets/border-bottom-mud.png) 5px 0 no-repeat, url(https://cdn.jsdelivr.net/npm/cours-introduction-web@0.1.9/dist/assets/border-right-mud.png) 100% 100% no-repeat;
   }
 }
 .tile {
@@ -26,7 +26,7 @@ $max: 20;
     content: ''; position: absolute; top: 50%; width: 90px; height: 90px; background: url(https://cdn.jsdelivr.net/npm/cours-introduction-web@0.1.9/dist/assets/border-bottom.png) 0 100% no-repeat;
   }
   &:first-of-type.tile-1:before {
-    background-image: url(/assets/border-bottom-mud.png);
+    background-image: url(https://cdn.jsdelivr.net/npm/cours-introduction-web@0.1.9/dist/assets/border-bottom-mud.png);
   }
 
   &:after {
