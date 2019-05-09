@@ -53,13 +53,13 @@ export class HoodService {
   public async moveToEast(): Promise<void> {
     this.faceTo(Direction.EAST);
     const {x, y} = this.getPosition();
-    await this.moveTo({x, y: y - 1});
+    await this.moveTo({x, y: y + 1});
   }
 
   public async moveToWest(): Promise<void> {
     this.faceTo(Direction.WEST);
     const {x, y} = this.getPosition();
-    await this.moveTo({x, y: y + 1});
+    await this.moveTo({x, y: y - 1});
   }
 
   public canMoveTo(position: Coordinates): boolean {

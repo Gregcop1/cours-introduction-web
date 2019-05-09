@@ -10,13 +10,14 @@ import {TILE} from '../../consts';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class GameComponent implements OnInit {
-  @Input() public level = 1;
-  @Input() public input = false;
+  @Input() public level = 4;
+  @Input() public input = true;
   public boardSize: BoardSize;
 
   constructor(private boardService: BoardService) { }
 
   ngOnInit() {
+    this.boardService.changeInput(!!this.input);
     this.boardService.boardSize$.subscribe((size: BoardSize) => this.boardSize = size);
     this.boardService.changeLevel(this.level);
   }

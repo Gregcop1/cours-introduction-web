@@ -87,9 +87,9 @@ export class HoodComponent implements OnInit {
           break;
         case 'ArrowDown': direction = Direction.SOUTH;
           break;
-        case 'ArrowLeft': direction = Direction.EAST;
+        case 'ArrowLeft': direction = Direction.WEST;
           break;
-        case 'ArrowRight': direction = Direction.WEST;
+        case 'ArrowRight': direction = Direction.EAST;
           break;
       }
 
