@@ -11,9 +11,9 @@ export default {
   },
   tiles: [
     [START, MUD, ROCK, TREE, GRASS, BUSH],
-    [BUSH, MUD, ROCK, GRASS, BUSH, TREE],
+    [MUD, MUD, ROCK, GRASS, BUSH, TREE],
     [FLOWER, MUD, MUD, MUD, ROCK, FLOWER],
-    [BUSH, FLOWER, ROCK, MUD, MUD, TREE],
+    [BUSH, FLOWER, ROCK, MUD, MUD, MUD],
     [BUSH, MUD, MUD, MUD, END, ROCK],
   ]
 };
